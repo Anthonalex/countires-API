@@ -3,7 +3,6 @@ body {
     url("./images/background.jpg");
   background-size: cover;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
@@ -112,6 +111,7 @@ body {
 .search-input {
   width: 40%;
   padding: 6px;
+  font-size: 20px;
 }
 
 .logout-btn {
