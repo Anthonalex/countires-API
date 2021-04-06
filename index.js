@@ -2,7 +2,7 @@ const userNameInput = document.querySelector(".username-input");
 const passwordInput = document.querySelector(".password-input");
 const userNameAlertBox = document.querySelector(".username-alert");
 const passwordAlertBox = document.querySelector(".password-alert");
-const loginBtn = document.querySelector('.login-btn')
+const loginBtn = document.querySelector(".login-btn");
 
 const loginBtnStatus = {
   usernameIsValid: false,
@@ -10,12 +10,12 @@ const loginBtnStatus = {
 };
 
 const enableLoginBtn = (status) => {
-  if(status.usernameIsValid && status.passwordIsValid){
-    loginBtn.removeAttribute('disabled')
+  if (status.usernameIsValid && status.passwordIsValid) {
+    loginBtn.removeAttribute("disabled");
   } else {
-    loginBtn.setAttribute('disabled')
+    loginBtn.setAttribute("disabled", "");
   }
-}
+};
 
 const isValid = (textData) => {
   if (textData.trim().length >= 5) {
@@ -29,16 +29,23 @@ userNameInput.addEventListener("input", () => {
     loginBtnStatus.usernameIsValid = true;
     userNameAlertBox.classList.remove("active");
   } else {
+    loginBtnStatus.usernameIsValid = false;
     userNameAlertBox.classList.add("active");
   }
+  enableLoginBtn(loginBtnStatus);
 });
 
 passwordInput.addEventListener("input", () => {
   if (isValid(passwordInput.value)) {
     loginBtnStatus.passwordIsValid = true;
     passwordAlertBox.classList.remove("active");
-    enableLoginBtn(loginBtnStatus) 
   } else {
+    loginBtnStatus.passwordIsValid = false;
     passwordAlertBox.classList.add("active");
   }
+  enableLoginBtn(loginBtnStatus);
+});
+
+loginBtn.addEventListener("click", () => {
+  window.location.href = "./main-page/main-page.html";
 });

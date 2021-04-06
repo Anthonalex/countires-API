@@ -37,7 +37,7 @@ body {
   border: none;
 }
 
-p {
+.login-container p {
   margin-bottom: 8px;
 }
 
@@ -53,7 +53,6 @@ p {
   font-weight: bold;
   border-radius: 3px;
 }
-
 
 .invalid-alert {
   display: none;
@@ -72,4 +71,61 @@ p {
 .login-btn:disabled {
   background: #c1e01394;
   cursor: not-allowed;
+}
+
+.nav-bar {
+  background: rgba(29, 29, 29, 0.966);
+  width: 100vw;
+  height: 64px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 24px;
+}
+
+.home-page {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 28px;
+  transition: 0.5s;
+}
+
+.home-page:hover {
+  font-size: 32px;
+}
+
+.favorites {
+  font-size: 18px;
+  text-decoration: none;
+  color: aquamarine;
+  margin-top: 4px;
+  padding: 6px;
+}
+
+.favorites:hover {
+  background: rgb(24, 23, 23);
+  border-radius: 4px;
+}
+
+.search-input {
+  width: 40%;
+  padding: 6px;
+}
+
+.logout-btn {
+  margin-right: 55px;
+  padding: 10px;
+  color: aqua;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.logout-btn:hover {
+  background: rgb(20, 20, 20);
+  font-size: 28px;
 }
