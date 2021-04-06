@@ -64,7 +64,7 @@ body {
 }
 
 .active {
-  display: block;
+  display: block !important;
 }
 
 .login-btn:disabled {
@@ -109,8 +109,9 @@ body {
 }
 
 .search-input {
-  width: 40%;
-  padding: 6px;
+  width: 100%;
+
+  padding: 1%;
   font-size: 20px;
 }
 
@@ -129,6 +130,12 @@ body {
   background: rgb(20, 20, 20);
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
 @media only screen and (max-width: 650px) {
   .nav-bar {
     flex-direction: column;
@@ -142,4 +149,15 @@ body {
   .favorites {
     font-size: 46px;
   }
+
+  .input-container {
+    width: 100%;
+  }
+}
+
+.validation-alert {
+  display: none;
+  color: rgb(175, 224, 255);
+  margin: 6px 0;
+  transition: 1s;
 }
