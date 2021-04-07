@@ -13,7 +13,7 @@ A website for fetching countires flags,native names and international name by in
   - **main page** with search input validated `only-string` for search input and search info saved on `local-storage`
   - **favorites page** which contains saved countries on `local-storage` 
 
-  *** all data `search-input, favorites` will remain on local storage ***
+  ***all data `search-input, favorites` will remain on local storage***
 
   ## Technologies
     - JS `ECMAScript`
