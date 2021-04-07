@@ -1,4 +1,3 @@
-const logOutBtn = document.querySelector(".logout-btn");
 const searchInput = document.querySelector(".search-input");
 const validationAlert = document.querySelector(".validation-alert");
 const countiresContainer = document.querySelector(".countires-container");
@@ -77,9 +76,7 @@ const fetchCountry = () => {
   }
 };
 
-logOutBtn.addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
+
 
 searchInput.addEventListener("input", (event) => {
   countiresContainer.innerHTML = "";
