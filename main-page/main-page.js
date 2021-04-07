@@ -2,6 +2,7 @@ const logOutBtn = document.querySelector(".logout-btn");
 const searchInput = document.querySelector(".search-input");
 const validationAlert = document.querySelector(".validation-alert");
 const countiresContainer = document.querySelector(".countires-container");
+const notFoundAlert = document.querySelector(".not-found");
 
 searchInput.value = localStorage.getItem("value");
 
@@ -12,26 +13,48 @@ const isValidInput = (data) => {
   return false;
 };
 
-const renderCountires = (data) => {
-  data.forEach((el) => {
-    console.log(el);
-    let div = document.createElement("div");
-    let img = document.createElement("img");
-    let countryName = document.createElement("p");
-    let favBtn = document.createElement("button");
+const favBtnEventAdder = (btn) => {
+  btn.addEventListener("click", (event) => {
+    if (btn.textContent === "+") {
+      btn.textContent = "-";
+      btn.classList.add("added");
 
-    favBtn.textContent = "+";
-    countryName.textContent = `${el.nativeName}(${el.name})`;
-
-    img.setAttribute("src", `${el.flag}`);
-    img.classList.add("flag-img");
-    favBtn.classList.add('fav-btn')
-
-    div.append(img, countryName, favBtn);
-
-    div.classList.add("country");
-    countiresContainer.append(div);
+      console.log(event.path[1].id);
+      localStorage.setItem(`${event.path[1].id}`, `${event.path[1]}`);
+    } else {
+      btn.textContent = "+";
+      btn.classList.remove("added");
+      localStorage.removeItem(`${event.path[1].id}`);
+    }
   });
+};
+
+const renderCountires = (data) => {
+  if (data.status !== 404) {
+    notFoundAlert.classList.remove("active");
+    data.forEach((el) => {
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      let countryName = document.createElement("p");
+      let favBtn = document.createElement("button");
+
+      favBtn.textContent = "+";
+      countryName.textContent = `${el.nativeName} (${el.name})`;
+
+      div.setAttribute("id", `${el.name}`);
+      img.setAttribute("src", `${el.flag}`);
+      img.classList.add("flag-img");
+      favBtn.classList.add("fav-btn");
+
+      favBtnEventAdder(favBtn);
+      div.append(img, countryName, favBtn);
+
+      div.classList.add("country");
+      countiresContainer.append(div);
+    });
+  } else {
+    notFoundAlert.classList.add("active");
+  }
 };
 
 const fetchCountry = () => {
@@ -44,6 +67,9 @@ const fetchCountry = () => {
       })
       .then((countries) => {
         renderCountires(countries);
+      })
+      .catch((error) => {
+        alert(error);
       });
   }
 };
