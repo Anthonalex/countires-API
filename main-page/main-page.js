@@ -18,9 +18,12 @@ const favBtnEventAdder = (btn) => {
     if (btn.textContent === "+") {
       btn.textContent = "-";
       btn.classList.add("added");
+      btn.setAttribute("id", `${event.path[1].id}`);
 
-      console.log(event.path[1].id);
-      localStorage.setItem(`${event.path[1].id}`, `${event.path[1]}`);
+      localStorage.setItem(
+        `${event.path[1].id}`,
+        `${JSON.stringify(event.path[1].innerHTML)}`
+      );
     } else {
       btn.textContent = "+";
       btn.classList.remove("added");
@@ -89,3 +92,5 @@ searchInput.addEventListener("input", (event) => {
     searchInput.value = localStorage.getItem("value");
   }
 });
+
+fetchCountry();

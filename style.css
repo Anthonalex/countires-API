@@ -239,3 +239,7 @@ body {
   cursor: not-allowed;
   display: none;
 }
+
+.favorites-container {
+  justify-content: space-between;
+}
