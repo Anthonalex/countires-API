@@ -2,7 +2,7 @@ const logOutBtn = document.querySelector(".logout-btn");
 const favContainer = document.querySelector(".favorites-container");
 
 logOutBtn.addEventListener("click", () => {
-  window.location.href = "/index.html";
+  window.location.href = "../index.html";
 });
 
 const renderFavorites = (storage) => {
