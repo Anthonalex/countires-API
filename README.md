@@ -21,4 +21,4 @@ A website for fetching countires flags,native names and international name by in
     - CSS 
 
   ## Github Link
-    `Link`
+    `https://anthonalex.github.io/countires-API/`
