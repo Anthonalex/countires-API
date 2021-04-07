@@ -229,8 +229,8 @@ body {
 
 .not-found {
   position: absolute;
-  top: 30%;
-  left: 15%;
+  top: 20%;
+  left: 40%;
   font-size: 24px;
   color: rgb(168, 207, 241);
   background: rgba(24, 32, 32, 0.651);
